@@ -1,0 +1,119 @@
+{
+  "resultado": "aprobado",
+  "pantallas": [
+    {
+      "pantalla": "01-ingreso-escritorio",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "02-ingreso-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "03-administracion-escritorio",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "04-administracion-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "05-estudiantes-escritorio",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "06-crear-votacion",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "07-borrador-opciones",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "08-estudiante-escritorio",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "09-estudiante-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "10-boleta-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "11-confirmacion-voto",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "12-resultados-escritorio",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "13-resultados-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    },
+    {
+      "pantalla": "14-estudiantes-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false
+    }
+  ],
+  "errores_javascript": [],
+  "recorrido": "registro y edición de estudiante, deshabilitar/habilitar, restablecer contraseña, borrador, agregar/editar/eliminar opciones, apertura, voto con cancelación y confirmación, bloqueo de repetición, cierre, resultados, filtros y eliminación de borrador"
+}

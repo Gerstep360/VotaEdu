@@ -1,0 +1,26 @@
+[
+  {
+    "archivo": "acta-votaedu-demostracion.pdf",
+    "paginas": 1,
+    "formato": "A4",
+    "resultado": "aprobado"
+  },
+  {
+    "archivo": "acta-votaedu-empate.pdf",
+    "paginas": 1,
+    "formato": "A4",
+    "resultado": "aprobado"
+  },
+  {
+    "archivo": "acta-votaedu-multipagina.pdf",
+    "paginas": 4,
+    "formato": "A4",
+    "resultado": "aprobado"
+  },
+  {
+    "archivo": "acta-votaedu-sin-votos.pdf",
+    "paginas": 1,
+    "formato": "A4",
+    "resultado": "aprobado"
+  }
+]

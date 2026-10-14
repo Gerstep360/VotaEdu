@@ -1,0 +1,200 @@
+{
+  "resultado": "aprobado",
+  "base": "votaedu_expansion_ui_test",
+  "capturas": [
+    {
+      "pantalla": "01-panel-administrativo",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "02-gestiones",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "03-cursos",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "04-docentes",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "05-estudiantes-ci-completo",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "06-historial",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "07-perfil-ci-completo",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "08-registro-estudiante",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "09-registro-docente-asignaciones",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "10-votacion-tipo-alcance",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "11-candidaturas-y-propuestas",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "12-cambio-obligatorio",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "13-portal-estudiante-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "14-candidaturas-boleta-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "15-perfil-participaciones-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "16-panel-docente",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "17-resultados-y-descarga",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "18-vista-previa-acta",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "19-acta-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "20-panel-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "21-docentes-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "22-cursos-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "23-gestiones-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "resultado": "aprobado"
+    },
+    {
+      "pantalla": "24-auditoria-celular",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "resultado": "aprobado"
+    }
+  ],
+  "errores_javascript": [],
+  "recorrido": "CI completo, registro estudiantil, registro docente, asignación, primer cambio, candidatos y propuestas, padrón, voto, docencia, cierre, resultados, vista previa y descarga PDF real"
+}

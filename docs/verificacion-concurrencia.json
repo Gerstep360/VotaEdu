@@ -1,0 +1,19 @@
+{
+  "resultado": "aprobado",
+  "base": "votaedu_concurrency_test",
+  "procesos_simultaneos": 2,
+  "registros": {
+    "votes": 1,
+    "participations": 1
+  },
+  "respuestas": [
+    {
+      "success": true,
+      "error": null
+    },
+    {
+      "success": false,
+      "error": "Ya registraste tu voto en esta votación."
+    }
+  ]
+}

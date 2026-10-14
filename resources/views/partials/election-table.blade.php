@@ -1,0 +1,7 @@
+@php($teacherView = $teacherView ?? false)
+<div class="table-responsive"><table class="table align-middle election-table"><thead><tr><th>Votación</th><th>Estado</th><th>Alcance</th><th class="text-end">Acción</th></tr></thead><tbody>
+@forelse($elections as $election)
+@php($detailRoute = $teacherView ? 'teacher.elections.show' : 'admin.elections.show')
+<tr><td><div class="table-title"><span class="table-icon"><x-icon /></span><div><a href="{{ route($detailRoute,$election) }}">{{ $election->title }}</a><small><x-election-type :type="$election->type" /> · {{ $election->academicYear?->year ?: 'Sin gestión' }}</small></div></div></td><td><x-status :status="$election->status" /></td><td><span>{{ $election->courses->isNotEmpty() ? $election->courses->pluck('name')->join(', ') : 'Toda la institución' }}</span><small class="d-block muted">{{ $election->options_count }} opciones</small></td><td class="text-end"><a class="btn btn-sm btn-light" href="{{ $election->isClosed() ? route('results.show',$election) : route($detailRoute,$election) }}">{{ $election->isClosed() ? 'Ver resultados' : 'Ver votación' }} <x-icon name="arrow" /></a></td></tr>
+@empty<tr><td colspan="4"><div class="empty-state"><x-icon /><h3>Aún no hay votaciones aquí</h3><p>Prueba otro filtro o prepara una nueva decisión.</p><a class="btn btn-primary" href="{{ route($teacherView ? 'teacher.elections.create' : 'admin.elections.create') }}">Crear votación</a></div></td></tr>@endforelse
+</tbody></table></div>
