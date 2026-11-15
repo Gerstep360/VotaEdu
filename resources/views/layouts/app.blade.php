@@ -37,6 +37,7 @@
         @endif
         <a @class(['nav-item', 'selected' => request()->routeIs('results.*') || request('status') === 'closed']) href="{{ $admin ? route('admin.elections.index', ['status' => 'closed']) : route($home).'#resultados' }}"><x-icon name="chart" />Resultados{{ $admin || $teacherRole ? ' y actas' : '' }}</a>
         @if($admin)<a @class(['nav-item', 'selected' => request()->routeIs('admin.audit-logs.*')]) href="{{ route('admin.audit-logs.index') }}"><x-icon name="shield" />Auditoría</a>@endif
+        <a class="nav-item" href="{{ route('network.connect') }}" target="_blank"><x-icon name="qr" />Conectar Celulares (QR)</a>
         <p class="nav-caption account-caption">MI CUENTA</p>
         <a @class(['nav-item', 'selected' => request()->routeIs('profile.*')]) href="{{ route('profile.show') }}"><x-icon name="users" />Mi perfil y participación</a>
         @endunless
@@ -48,7 +49,9 @@
     <header class="topbar">
         <button class="menu-button" aria-label="Mostrar navegación" aria-controls="navigation" aria-expanded="false"><x-icon name="menu" /></button>
         <span class="topbar-label">{{ $admin ? 'Panel de administración' : ($teacherRole ? 'Portal docente' : 'Portal estudiantil') }}</span>
-        <div class="user-profile"><a class="profile-link" href="{{ route($forced ? 'password.change' : 'profile.show') }}" aria-label="Mi perfil"><span class="avatar">{{ mb_substr($account->name, 0, 1) }}</span><span class="user-name">{{ $account->name }}<small>{{ $roleLabel }}</small></span></a><form method="post" action="{{ route('logout') }}">@csrf<button class="logout-button" title="Cerrar sesión" aria-label="Cerrar sesión"><x-icon name="logout" /></button></form></div>
+        <div class="user-profile">
+            <a href="{{ route('network.connect') }}" target="_blank" class="d-none d-sm-inline-flex align-items-center gap-2 text-decoration-none" style="padding: 0.35rem 0.85rem; border-radius: 999px; background: #eff6ff; color: #245ce0; font-size: 0.82rem; font-weight: 700; border: 1px solid #bfdbfe; margin-right: 0.5rem;" title="Abrir pantalla de código QR para teléfonos"><x-icon name="qr" /><span>QR Móvil</span></a>
+            <a class="profile-link" href="{{ route($forced ? 'password.change' : 'profile.show') }}" aria-label="Mi perfil"><span class="avatar">{{ mb_substr($account->name, 0, 1) }}</span><span class="user-name">{{ $account->name }}<small>{{ $roleLabel }}</small></span></a><form method="post" action="{{ route('logout') }}">@csrf<button class="logout-button" title="Cerrar sesión" aria-label="Cerrar sesión"><x-icon name="logout" /></button></form></div>
     </header>
     <main id="main" class="main-content">
         @include('partials.messages')

@@ -16,6 +16,7 @@
     </form>
     <div class="login-help"><x-icon name="users" /><div><strong>¿Necesitas ayuda para ingresar?</strong><p>Si olvidaste tu contraseña o aún no tienes una cuenta, consulta con tu docente o administrador.</p></div></div>
     <div class="login-trust"><x-icon name="shield" /> Tu elección no aparece vinculada a tu nombre.</div>
+    <div class="mt-3 text-center"><a href="{{ route('network.connect') }}" class="btn btn-outline-primary btn-sm d-inline-flex align-items-center gap-2" style="border-radius: 999px; padding: 0.45rem 1.15rem; font-weight: 700; font-size: 0.85rem; text-decoration: none;" title="Ver código QR para escanear desde tu teléfono"><x-icon name="qr" /><span>¿Votarás desde tu celular? Ver QR</span></a></div>
     </div><span class="login-bottom">Una plataforma sencilla. Una comunidad que participa.</span></section>
 </div>
 @endsection

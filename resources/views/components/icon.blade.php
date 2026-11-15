@@ -16,6 +16,8 @@
 @case('search')<circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/>@break
 @case('menu')<path d="M4 6h16M4 12h16M4 18h16"/>@break
 @case('clock')<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>@break
+@case('qr')<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M7 7h.01m10 0h.01m-10 10h.01m10 3v-3h-3"/>@break
+@case('smartphone')<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>@break
 @default<path d="M4 12h16v9H4zM8 15h8m-9-7 5-5 5 5-5 5z"/>
 @endswitch
 </svg>

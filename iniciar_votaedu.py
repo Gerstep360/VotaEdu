@@ -80,6 +80,18 @@ def port_open(host: str, port: int) -> bool:
         return False
 
 
+def get_local_ip() -> str:
+    try:
+        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+            s.connect(("8.8.8.8", 80))
+            return s.getsockname()[0]
+    except Exception:
+        try:
+            return socket.gethostbyname(socket.gethostname())
+        except Exception:
+            return "127.0.0.1"
+
+
 class Launcher:
     def __init__(self, window: tk.Tk):
         self.window = window
@@ -88,7 +100,9 @@ class Launcher:
         self.mysql: subprocess.Popen | None = None
         self.busy = False
         self.was_running = False
+        self.local_ip = get_local_ip()
         self.url = "http://127.0.0.1:8000"
+        self.qr_url = f"http://{self.local_ip}:8000/conectar"
         window.title("VotaEdu · Asistente de inicio")
         window.geometry("1040x800")
         window.minsize(980, 800)
@@ -186,6 +200,9 @@ class Launcher:
         self.browser_button = self.button(bottom, "Abrir plataforma en el navegador", lambda: webbrowser.open(self.url))
         self.browser_button.pack(side="left")
         self.browser_button.configure(state="disabled")
+        self.qr_button = self.button(bottom, "📱 Código QR Móvil", lambda: webbrowser.open(self.qr_url))
+        self.qr_button.pack(side="left", padx=10)
+        self.qr_button.configure(state="disabled")
         self.help_button = self.button(bottom, "Ayuda", self.help)
         self.help_button.pack(side="right")
 
@@ -242,7 +259,10 @@ class Launcher:
             app_port = int(values.pop("APP_PORT"))
             if port_open("127.0.0.1", app_port):
                 raise RuntimeError(f"El puerto {app_port} ya está ocupado. Usa otro puerto o detén la plataforma que está abierta.")
+            local_ip = get_local_ip()
+            self.local_ip = local_ip
             self.url = f"http://127.0.0.1:{app_port}"
+            self.qr_url = f"http://{local_ip}:{app_port}/conectar"
             save_env({**values, "DB_CONNECTION": "mysql", "APP_NAME": "VotaEdu", "APP_ENV": "local", "APP_URL": self.url, "APP_LOCALE": "es", "APP_FALLBACK_LOCALE": "es", "SESSION_DRIVER": "file", "CACHE_STORE": "file", "QUEUE_CONNECTION": "sync"})
             if not (ROOT / "vendor/autoload.php").exists():
                 composer = shutil.which("composer")
@@ -266,13 +286,15 @@ class Launcher:
             server_log = ROOT / "storage/logs/launcher-server.log"
             server_log.parent.mkdir(parents=True, exist_ok=True)
             with server_log.open("a", encoding="utf-8") as handle:
-                self.server = subprocess.Popen([php, "artisan", "serve", "--host=127.0.0.1", f"--port={app_port}", "--tries=1", "--no-reload"], cwd=ROOT, stdout=handle, stderr=handle, creationflags=FLAGS)
+                self.server = subprocess.Popen([php, "artisan", "serve", "--host=0.0.0.0", f"--port={app_port}", "--tries=1", "--no-reload"], cwd=ROOT, stdout=handle, stderr=handle, creationflags=FLAGS)
             for _ in range(40):
                 if self.server.poll() is not None:
                     raise RuntimeError("Laravel no pudo iniciar. Consulta storage/logs/launcher-server.log.")
                 try:
                     with urllib.request.urlopen(self.url + "/login", timeout=2) as response:
                         if response.status == 200:
+                            self.events.put(("log", f"Acceso distribuido en red local: http://{local_ip}:{app_port}"))
+                            self.events.put(("log", f"Página con código QR para celulares: {self.qr_url}"))
                             self.events.put(("ready", self.url))
                             return
                 except OSError:
@@ -318,6 +340,7 @@ class Launcher:
                     self.status.set(f"Plataforma lista · {value}")
                     self.status_label.configure(fg="#158466")
                     self.browser_button.configure(state="normal")
+                    self.qr_button.configure(state="normal")
                     self.stop_button.configure(state="normal")
                     self.append_log("VotaEdu está listo. El navegador abrirá la pantalla de ingreso.")
                     webbrowser.open(value)
@@ -333,6 +356,7 @@ class Launcher:
             self.lock(False)
             self.stop_button.configure(state="disabled")
             self.browser_button.configure(state="disabled")
+            self.qr_button.configure(state="disabled")
             self.status.set("El servidor se detuvo. Puedes volver a iniciarlo.")
             self.status_label.configure(fg=MUTED)
         self.window.after(100, self.poll)

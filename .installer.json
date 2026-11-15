@@ -1,0 +1,9 @@
+{
+  "product": "votaedu",
+  "installer_version": "2.2.0",
+  "app_port": 8000,
+  "php_exe": "C:\\Dev\\php\\php.exe",
+  "php_ini": "C:\\Dev\\php\\php.ini",
+  "log_path": "C:\\Users\\rojas\\AppData\\Local\\Temp\\votaedu-installer-1794783487848210100.log",
+  "launcher_path": "C:\\Users\\rojas\\Documents\\Proyectos\\Laravel\\VotaEdu\\Iniciar-VotaEdu.cmd"
+}
