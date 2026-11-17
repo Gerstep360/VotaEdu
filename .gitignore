@@ -28,6 +28,8 @@ Thumbs.db
 __pycache__/
 *.pyc
 /tmp/
+/database/schema/
+/database/*.sql
 EXPLICACION_SISTEMA_VOTAEDU.md
 VOTAEDU_AMPLIACION_CODEX.md
 PROYECTO_VOTACIONES_BTH_PARA_CODEX.md

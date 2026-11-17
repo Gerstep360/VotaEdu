@@ -21,5 +21,6 @@ Route::middleware('auth')->group(function () {
     // Personal profile (Section 3.3)
     Route::middleware('password.changed')->group(function () {
         Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+        Route::match(['put', 'patch', 'post'], '/profile', [ProfileController::class, 'update'])->name('profile.update');
     });
 });
